@@ -1,6 +1,6 @@
 import java.util.Hashtable;
 
-public class App {
+public class HashTableApp {
 
 	public static void main(String[] args) {
 		HashTable table1 = new HashTable();
