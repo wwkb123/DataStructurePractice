@@ -1,3 +1,4 @@
+import java.util.Hashtable;
 
 public class App {
 
@@ -13,7 +14,14 @@ public class App {
 		table1.printTable();
 
 		
-		System.out.print(table1.getValue("Eva"));
+		System.out.println(table1.getValue("Eva"));
+		
+		Hashtable<String,String> table2 = new Hashtable<String,String>();
+		
+		table2.put("Evabb", "520");
+		table2.put("Tommy", "1314");
+		System.out.println(table2.get("Tommy"));
+		
 	}
 
 }
