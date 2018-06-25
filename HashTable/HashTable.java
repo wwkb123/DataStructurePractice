@@ -51,12 +51,13 @@ public class HashTable {
 	}
 	
 	public void printTable(){
+		System.out.println("Index\tItems");
 		for(int i=0;i<tableSize;i++){
 			Pair curr = table[i];
 			if(curr==null){
 				System.out.print(i);
 			}else{
-				System.out.print(i + " " + curr.key + " " + curr.value);
+				System.out.print(i + "\t" + curr.key + " " + curr.value);
 				while(curr.next!=null){
 				curr = curr.next;
 				System.out.print(" -> " + curr.key + " " + curr.value);
