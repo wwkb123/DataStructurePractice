@@ -1,3 +1,4 @@
+//implemented using linked list
 
 public class ArrayList {
 	
