@@ -46,6 +46,11 @@ public class LinkedListApp{
 
 		public Node removeBack(){
 			if(head==null) return null;
+			if(head.next == null){
+				Node temp = head;
+				head = null;
+				return temp;
+			}
 			Node curr = head;
 			Node prev = head;
 			while(curr.next != null){
