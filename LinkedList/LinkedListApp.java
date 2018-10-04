@@ -37,9 +37,7 @@ public class LinkedListApp{
 		}
 
 		public Node removeFront(){
-			if(head==null){
-				return null;
-			}
+			if(head==null) return null;
 			Node temp = head;
 			head = head.next;
 			size--;
