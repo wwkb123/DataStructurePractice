@@ -116,6 +116,20 @@ public class LinkedListApp{
 			n.next = temp.next;
 			temp = null;
 		}
+		
+		public void reverseList(){
+			if(head == null) return;
+			Node next = null;
+			Node curr = head;
+			Node prev = null;
+			while(curr != null){
+				next = curr.next;
+				curr.next = prev;
+				prev = curr;
+				curr = next;
+			}
+			head = prev;
+		}
 
 		public void printAll(){
 			if(head == null){
@@ -161,9 +175,9 @@ public class LinkedListApp{
 		ll.insertBack(69);
 		ll.insertBack(11);
 		ll.removeBack();
-		ll.removeBack();
-		ll.removeBack();
-		ll.removeBack();
+		ll.printAll();
+
+		ll.reverseList();
 		ll.printAll();
 	}
 }
