@@ -94,5 +94,17 @@ public class BinaryTree {
 		System.out.println(node.data);
 	}
 	
+	public void breadthFirstOrder(){
+		if(root == null) return;
+		Queue q = new Queue();
+		q.push(root);
+		while(q.size() > 0){
+			Node node = q.pop();
+			System.out.println(node.data);
+			q.push(node.left);
+			q.push(node.right);
+		}
+	}
+	
 	
 }
