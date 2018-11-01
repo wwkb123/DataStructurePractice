@@ -1,4 +1,5 @@
 package practice;
+import java.util.*;
 
 public class BinaryTree {
 	Node root;
@@ -106,5 +107,50 @@ public class BinaryTree {
 		}
 	}
 	
+	public void printTree(int height){
+			if(root == null) return;
+			Queue<Node> q = new LinkedList<Node>();
+			Node curr = root;
+			q.add(curr);
+			int nodeCount = 0;
+			int level = 0;
+	
+
+			while(q.size() > 0 && level <= height){
+				Node n = q.remove();
+				nodeCount++;
+				
+				printSpace(height*(height-level)); //
+				
+				if(n != null){
+					
+					System.out.print(n.data);
+					printSpace(height);   //
+					q.add(n.left);
+					q.add(n.right);
+					
+				}
+				else{
+					
+					System.out.print("*");
+					
+				}
+				if(nodeCount % 2 == 0) printSpace(height); //
+				
+				if(nodeCount == (int)Math.pow(2, level)){
+					nodeCount = 0;
+					System.out.println("");
+					level++;
+				}
+			}
+		}
+		
+		public void printSpace(int number){
+			while(number > 0){
+				System.out.print(" ");
+				number--;
+			}
+		}
+
 	
 }
