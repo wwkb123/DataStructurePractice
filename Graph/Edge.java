@@ -1,3 +1,5 @@
+package Graph;
+
 public class Edge{
 
 	String name;
