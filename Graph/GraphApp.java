@@ -1,24 +1,25 @@
 package Graph;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public class GraphApp{
 
 
 	public static void main(String[] args){
 
-		Vertex v0 = new Vertex("0");
-		Vertex v1 = new Vertex("1");
-		Vertex v2 = new Vertex("2");
+		Vertex a = new Vertex("a");
+		Vertex b = new Vertex("b");
+		Vertex c = new Vertex("c");
+		Vertex d = new Vertex("d");
 
-		Edge e0 = new Edge(v0, v1, "a", 1);  // 0 -> 1
-		Edge e1 = new Edge(v1, v2, "b", 1);  // 1 -> 2
-		Edge e2 = new Edge(v2, v0, "c", 1);  // 2 -> 0
+		Edge e0 = new Edge(a, b, "AB", 1);  // 0 -> 1
+		Edge e1 = new Edge(a, c, "AC", 1);  // 1 -> 2
+		Edge e2 = new Edge(a, d, "AD", 1);  // 2 -> 0
 
 		List<Vertex> vertices = new ArrayList<Vertex>();
-		vertices.add(v0);
-		vertices.add(v1);
-		vertices.add(v2);
+		vertices.add(a);
+		vertices.add(b);
+		vertices.add(c);
+		vertices.add(d);
 
 		List<Edge> edges = new ArrayList<Edge>();
 		edges.add(e0);

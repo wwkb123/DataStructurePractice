@@ -1,9 +1,6 @@
 package Graph;
 
-import java.util.List;
-import java.util.Queue;
-import java.util.LinkedList;
-import java.util.Collection;
+import java.util.*;
 
 public class Graph{
 
@@ -42,11 +39,27 @@ public class Graph{
 	}
 
 	public Collection<Edge> outgoingEdges(Vertex v){
-		return null;
+		Set<Edge> s = new HashSet<Edge>();
+		for(Edge e : edges){
+			if(e.from == v) s.add(e);
+		}
+		return s;
 	}
 
-	public void breadthFirstPrint(){
+	public void breadthFirstPrint(Vertex v){
+		
 		Queue<Vertex> q = new LinkedList<Vertex>();
+		q.add(v);
+		
+		while(q.size() > 1){
+			Collection<Edge> outgoingEdges = outgoingEdges(v);
+			Vertex u = q.remove();
+			System.out.println(u.name);
+			q.add();
+			
+		}
+		
+
 
 
 	}
