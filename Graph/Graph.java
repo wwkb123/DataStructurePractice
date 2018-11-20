@@ -19,19 +19,20 @@ public class Graph{
 	}
 
 	public void insertVertex(Vertex v){
-
+		vertices.add(v);
 	}
 
 	public void insertEdge(Vertex u, Vertex v, String data){
-
+		Edge e = new Edge(u,v,data,1);
+		edges.add(e);
 	}
 
-	public void removeVertex(Vertex v){
-
+	public Vertex removeVertex(Vertex v){
+		return vertices.remove(v);
 	}
 
-	public void removeEdge(Edge e){
-
+	public Edge removeEdge(Edge e){
+		return edges.remove();
 	}
 
 	public Collection<Edge> incomingEdges(Vertex v){
