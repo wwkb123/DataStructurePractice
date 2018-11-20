@@ -27,7 +27,14 @@ public class GraphApp{
 		edges.add(e2);
 
 		Graph g = new Graph(vertices, edges);
-		g.printAll();
+		g.printVertices();
+
+		g.insertVertex(new Vertex("E"));
+
+		g.insertEdge(new Edge(b,d,"BD",1));
+
+		g.printVertices();
+		g.printEdges();
 
 
 	}

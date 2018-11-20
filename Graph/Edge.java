@@ -14,4 +14,8 @@ public class Edge{
 		this.weight = weight;
 	}
 
+	public String getName(){
+		return this.name;
+	}
+
 }

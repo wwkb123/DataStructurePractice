@@ -12,9 +12,15 @@ public class Graph{
 		this.edges = edges;
 	}
 
-	public void printAll(){
+	public void printVertices(){
 		for(Vertex v: vertices){
 			System.out.println(v.getName());
+		}
+	}
+
+	public void printEdges(){
+		for(Edge e: edges){
+			System.out.println(e.getName());
 		}
 	}
 
