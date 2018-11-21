@@ -93,6 +93,25 @@ public class GraphApp{
 
 		g.breadthFirstPrint(a);
 
+		System.out.println("\n\n");
+
+		List<Vertex> adjVertices = new ArrayList<Vertex>();
+		adjVertices.add(a);
+		adjVertices.add(b);
+		adjVertices.add(c);
+		adjVertices.add(d);
+
+		Edge[][] adjEdges = new Edge[adjVertices.size()][adjVertices.size()];
+		adjEdges[0][1] = new Edge(a, b, "AB", 1);
+		adjEdges[0][2] = new Edge(a, c, "AC", 1);  
+		adjEdges[0][3] = new Edge(a, d, "AD", 1);  
+		adjEdges[1][3] = new Edge(b, d, "BD", 1);
+
+		AdjGraph adjGraph = new AdjGraph(adjVertices,adjEdges);
+
+		adjGraph.printEdges();
+
+
 
 	}
 
