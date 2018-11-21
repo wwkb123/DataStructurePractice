@@ -34,6 +34,7 @@ public class GraphApp{
 		g.insertEdge(b,d,"BD",1);
 
 		g.printVertices();
+		//g.removeVertex(d);
 		g.printEdges();
 
 		Edge myEdge = g.getEdge(a,b);
@@ -48,6 +49,9 @@ public class GraphApp{
 		for(Edge e: g.incomingEdges(d)){
 			System.out.println("The incoming edge is "+e.getName());
 		}
+
+		System.out.println("Are A B connected? " + g.isConnected(a,b));
+		System.out.println("Are C D connected? " + g.isConnected(c,d));
 
 	}
 

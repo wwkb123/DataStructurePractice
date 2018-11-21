@@ -44,6 +44,13 @@ public class Graph{
 
 	public void removeVertex(Vertex v){
 		vertices.remove(v);
+		ListIterator<Edge> iterator = edges.listIterator();  // to prevent ConcurrentModificationException
+		while(iterator.hasNext()){
+			Edge e = iterator.next();
+			if(e.from == v || e.to == v){
+				iterator.remove();
+			}
+		}
 	}
 
 	public void removeEdge(Edge e){
@@ -64,6 +71,22 @@ public class Graph{
 			if(e.from == v) s.add(e);
 		}
 		return s;
+	}
+
+	//check whether two vertices are conntect
+	public boolean isConnected(Vertex u, Vertex v){
+		for(Edge e : edges){
+			if(e.from == u && e.to == v){
+				return true;
+			}
+		}
+		return false; //not found
+	}
+
+	//check whether this graph is a connected graph
+	public boolean isConnectedGraph(){
+
+		return false;
 	}
 
 	public void breadthFirstPrint(Vertex v){
