@@ -3,19 +3,23 @@ package Graph;
 public class Vertex{
 
 	String name;
-	boolean isVisted;
+	boolean isVisited;
 
 	public Vertex(String name){
 		this.name = name;
-		this.isVisted = false;
+		this.isVisited = false;
 	}
 
 	public String getName(){
 		return name;
 	}
 
-	public boolean isVisted(){
-		return isVisted;
+	public boolean isVisited(){
+		return isVisited;
+	}
+
+	public void reset(){
+		isVisited = false;
 	}
 
 }

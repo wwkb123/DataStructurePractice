@@ -29,7 +29,7 @@ public class GraphApp{
 		Graph g = new Graph(vertices, edges);
 	
 
-		g.insertVertex(new Vertex("E"));
+		//g.insertVertex(new Vertex("E"));
 
 		g.insertEdge(b,d,"BD",1);
 
@@ -71,6 +71,16 @@ public class GraphApp{
 		for(Vertex v : g.sameDegreeVertices()){
 			System.out.println(v.getName() + " in: "+g.inDegree(v)+" out: "+g.outDegree(v));
 		}
+
+		System.out.println("");
+
+		System.out.println("Is this graph a connected graph? " + g.isConnectedGraph());
+
+		System.out.println("");
+
+		g.depthFirstPrint(a);
+
+
 	}
 
 

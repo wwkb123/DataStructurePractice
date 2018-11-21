@@ -93,10 +93,18 @@ public class Graph{
 		return count;
 	}
 
+	public boolean isReachable(Vertex u, Vertex v){
+		return false;
+	}
+
+	public void printAllPaths(Vertex u, Vertex v){
+
+	}
+
 	//check whether two vertices are conntect
 	public boolean isConnected(Vertex u, Vertex v){
 		for(Edge e : edges){
-			if(e.from == u && e.to == v || e.from == v && e.to == u){
+			if((e.from == u && e.to == v) || (e.from == v && e.to == u)){
 				return true;
 			}
 		}
@@ -105,8 +113,19 @@ public class Graph{
 
 	//check whether this graph is a connected graph
 	public boolean isConnectedGraph(){
-
-		return false;
+		for(Vertex u : vertices){
+			System.out.print(u.getName()+" ");
+			for(Vertex v : vertices){
+				
+				if(u != v){ //for simple graph
+					System.out.print(v.getName()+" ");
+					if(!isConnected(u,v)){
+						return false;
+					}
+				}
+			}
+		}
+		return true;
 	}
 
 	public void breadthFirstPrint(Vertex v){
@@ -125,6 +144,24 @@ public class Graph{
 
 */
 
+	}
+
+	public void depthFirstPrint(Vertex v){
+		depthFirstPrintRecursive(v);
+		for(Vertex vertex : vertices){
+			vertex.reset();
+		}
+		System.out.println("");
+	}
+	public void depthFirstPrintRecursive(Vertex v){
+		System.out.print(v.getName() + " ");
+		v.isVisited = true;
+		for(Edge e : outgoingEdges(v)){
+			Vertex u = e.to;
+			if(!u.isVisited){
+				depthFirstPrintRecursive(u);
+			}
+		}
 	}
 
 	//return a collection of vertices in the graph that has the same in-Degree as its own out-Degree
