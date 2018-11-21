@@ -51,7 +51,11 @@ public class Graph{
 	}
 
 	public Collection<Edge> incomingEdges(Vertex v){
-		return null;
+		Set<Edge> s = new HashSet<Edge>();
+		for(Edge e : edges){
+			if(e.to == v) s.add(e);
+		}
+		return s;
 	}
 
 	public Collection<Edge> outgoingEdges(Vertex v){

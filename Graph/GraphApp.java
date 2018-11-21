@@ -36,9 +36,17 @@ public class GraphApp{
 		g.printVertices();
 		g.printEdges();
 
-		Edge e = g.getEdge(a,b);
-		if(e != null){
-			System.out.println("The edge is "+e.getName());
+		Edge myEdge = g.getEdge(a,b);
+		if(myEdge != null){
+			System.out.println("The edge is "+myEdge.getName());
+		}
+
+		for(Edge e: g.outgoingEdges(a)){
+			System.out.println("The outgoing edge is "+e.getName());
+		}
+
+		for(Edge e: g.incomingEdges(d)){
+			System.out.println("The incoming edge is "+e.getName());
 		}
 
 	}
