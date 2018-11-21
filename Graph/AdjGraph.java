@@ -28,6 +28,26 @@ public class AdjGraph{
 		}
 	}
 
-	
+	public void insertEdge(int i, int j, Edge e){
+		edges[i][j] = e;
+	}
+
+	public void insertVertex(Vertex v){
+
+		Edge[][] newEdges = new Edge[vertices.size() + 1][vertices.size() + 1];
+
+		//copy old elements to new matrix
+		for(int i = 0; i < vertices.size(); i++){
+			for(int j = 0; j < vertices.size(); j++){
+				newEdges[i][j] = edges[i][j];
+			}
+		}
+
+		edges = newEdges;
+		vertices.add(v);
+	}
+
+
+
 
 }

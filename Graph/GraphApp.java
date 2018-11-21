@@ -93,7 +93,7 @@ public class GraphApp{
 
 		g.breadthFirstPrint(a);
 
-		System.out.println("\n\n");
+		System.out.println("\n\n=============Adjecency Matrix=============\n\n");
 
 		List<Vertex> adjVertices = new ArrayList<Vertex>();
 		adjVertices.add(a);
@@ -105,11 +105,16 @@ public class GraphApp{
 		adjEdges[0][1] = new Edge(a, b, "AB", 1);
 		adjEdges[0][2] = new Edge(a, c, "AC", 1);  
 		adjEdges[0][3] = new Edge(a, d, "AD", 1);  
-		adjEdges[1][3] = new Edge(b, d, "BD", 1);
+		
 
 		AdjGraph adjGraph = new AdjGraph(adjVertices,adjEdges);
+		adjGraph.insertEdge(adjVertices.indexOf(b),adjVertices.indexOf(d), new Edge(b, d, "BD", 1));
 
 		adjGraph.printEdges();
+
+		adjGraph.insertVertex(new Vertex("E"));
+
+		adjGraph.printVertices();
 
 
 
