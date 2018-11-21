@@ -27,15 +27,19 @@ public class GraphApp{
 		edges.add(e2);
 
 		Graph g = new Graph(vertices, edges);
-		g.printVertices();
+	
 
 		g.insertVertex(new Vertex("E"));
 
-		g.insertEdge(new Edge(b,d,"BD",1));
+		g.insertEdge(b,d,"BD",1);
 
 		g.printVertices();
 		g.printEdges();
 
+		Edge e = g.getEdge(a,b);
+		if(e != null){
+			System.out.println("The edge is "+e.getName());
+		}
 
 	}
 

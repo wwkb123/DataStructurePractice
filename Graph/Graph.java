@@ -24,21 +24,30 @@ public class Graph{
 		}
 	}
 
+	public Edge getEdge(Vertex u, Vertex v){
+		for(Edge e: edges){
+			if(e.from == u && e.to == v){
+				return e;
+			}
+		}
+		return null;  //not found
+	}
+
 	public void insertVertex(Vertex v){
 		vertices.add(v);
 	}
 
-	public void insertEdge(Vertex u, Vertex v, String data){
-		Edge e = new Edge(u,v,data,1);
+	public void insertEdge(Vertex u, Vertex v, String data, int weight){
+		Edge e = new Edge(u,v,data,weight);
 		edges.add(e);
 	}
 
-	public Vertex removeVertex(Vertex v){
-		return vertices.remove(v);
+	public void removeVertex(Vertex v){
+		vertices.remove(v);
 	}
 
-	public Edge removeEdge(Edge e){
-		return edges.remove();
+	public void removeEdge(Edge e){
+		edges.remove(e);
 	}
 
 	public Collection<Edge> incomingEdges(Vertex v){
@@ -54,7 +63,7 @@ public class Graph{
 	}
 
 	public void breadthFirstPrint(Vertex v){
-		
+		/*
 		Queue<Vertex> q = new LinkedList<Vertex>();
 		q.add(v);
 		
@@ -67,7 +76,7 @@ public class Graph{
 		}
 		
 
-
+*/
 
 	}
 
