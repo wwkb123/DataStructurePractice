@@ -80,6 +80,8 @@ public class GraphApp{
 
 		g.depthFirstPrint(a);
 
+		g.breadthFirstPrint(a);
+
 
 	}
 

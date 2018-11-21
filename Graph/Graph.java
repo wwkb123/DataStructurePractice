@@ -129,24 +129,33 @@ public class Graph{
 	}
 
 	public void breadthFirstPrint(Vertex v){
-		/*
+		System.out.print("Breadth first: ");
 		Queue<Vertex> q = new LinkedList<Vertex>();
 		q.add(v);
 		
-		while(q.size() > 1){
-			Collection<Edge> outgoingEdges = outgoingEdges(v);
-			Vertex u = q.remove();
-			System.out.println(u.name);
-			q.add();
-			
-		}
-		
 
-*/
+		
+		while(q.size() > 0){
+			Vertex u = q.remove();
+			if(!u.isVisited)
+				System.out.print(u.getName() + " ");
+			u.isVisited = true;
+			for(Edge e : outgoingEdges(u)){
+				if(!e.to.isVisited){
+					q.add(e.to);
+				}
+			}
+		}
+
+		for(Vertex vertex : vertices){
+			vertex.reset();
+		}
+		System.out.println("");
 
 	}
 
 	public void depthFirstPrint(Vertex v){
+		System.out.print("Depth first: ");
 		depthFirstPrintRecursive(v);
 		for(Vertex vertex : vertices){
 			vertex.reset();
