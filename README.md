@@ -8,3 +8,4 @@ A repo to put my data structure practice files
 * Stack
 * Tree
 * Trie
+* Graph
