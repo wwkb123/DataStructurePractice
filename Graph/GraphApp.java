@@ -27,6 +27,17 @@ public class GraphApp{
 		edges.add(e2);
 
 		Graph g = new Graph(vertices, edges);
+
+		/*
+
+		Graph overview:
+
+			A -- B
+			| \  |
+			|  \ |
+			C    D
+
+		*/
 	
 
 		//g.insertVertex(new Vertex("E"));
