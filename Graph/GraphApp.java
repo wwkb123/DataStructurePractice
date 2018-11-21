@@ -85,7 +85,8 @@ public class GraphApp{
 
 		System.out.println("");
 
-		System.out.println("Is this graph a connected graph? " + g.isConnectedGraph());
+		//System.out.println("Is this graph a connected graph? " + g.isConnectedGraph());
+		System.out.println("Is D reachable to A? " + g.isReachable(a,d));
 
 		System.out.println("");
 

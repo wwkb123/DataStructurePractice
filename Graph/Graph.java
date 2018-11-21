@@ -94,6 +94,27 @@ public class Graph{
 	}
 
 	public boolean isReachable(Vertex u, Vertex v){
+		Queue<Vertex> q = new LinkedList<Vertex>();
+		q.add(u);
+
+		while(q.size() > 0){
+
+			Vertex curr = q.remove();
+			if(curr == v) return true;
+			curr.isVisited = true;
+			for(Edge e : outgoingEdges(curr)){
+				if(!e.to.isVisited){
+					q.add(e.to);
+				}
+			}
+		}
+
+		//reset
+		for(Vertex vertex : vertices){
+			vertex.reset();
+		}
+		System.out.println("");
+
 		return false;
 	}
 
@@ -162,7 +183,7 @@ public class Graph{
 		}
 		System.out.println("");
 	}
-	
+
 	public void depthFirstPrintRecursive(Vertex v){
 		System.out.print(v.getName() + " ");
 		v.isVisited = true;
