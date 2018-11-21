@@ -37,22 +37,40 @@ public class GraphApp{
 		//g.removeVertex(d);
 		g.printEdges();
 
+		System.out.println("");
+
 		Edge myEdge = g.getEdge(a,b);
 		if(myEdge != null){
 			System.out.println("The edge is "+myEdge.getName());
 		}
 
+		System.out.println("");
+
 		for(Edge e: g.outgoingEdges(a)){
 			System.out.println("The outgoing edge is "+e.getName());
 		}
+
+		System.out.println("");
 
 		for(Edge e: g.incomingEdges(d)){
 			System.out.println("The incoming edge is "+e.getName());
 		}
 
+		System.out.println("");
+
 		System.out.println("Are A B connected? " + g.isConnected(a,b));
 		System.out.println("Are C D connected? " + g.isConnected(c,d));
 
+		System.out.println("");
+
+		System.out.println("The indegree of D is "+g.inDegree(d));
+		System.out.println("The outdegree of A is "+g.outDegree(a));
+
+		System.out.println("");
+
+		for(Vertex v : g.sameDegreeVertices()){
+			System.out.println(v.getName() + " in: "+g.inDegree(v)+" out: "+g.outDegree(v));
+		}
 	}
 
 

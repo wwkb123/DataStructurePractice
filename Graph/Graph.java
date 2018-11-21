@@ -73,10 +73,30 @@ public class Graph{
 		return s;
 	}
 
+	public int outDegree(Vertex v){
+		int count = 0;
+		for(Edge e : edges){
+			if(e.from == v){
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public int inDegree(Vertex v){
+		int count = 0;
+		for(Edge e : edges){
+			if(e.to == v){
+				count++;
+			}
+		}
+		return count;
+	}
+
 	//check whether two vertices are conntect
 	public boolean isConnected(Vertex u, Vertex v){
 		for(Edge e : edges){
-			if(e.from == u && e.to == v){
+			if(e.from == u && e.to == v || e.from == v && e.to == u){
 				return true;
 			}
 		}
@@ -105,6 +125,15 @@ public class Graph{
 
 */
 
+	}
+
+	//return a collection of vertices in the graph that has the same in-Degree as its own out-Degree
+	public Collection<Vertex> sameDegreeVertices(){
+		Set<Vertex> s = new HashSet<Vertex>();
+		for(Vertex v : vertices){
+			if(inDegree(v) == outDegree(v)) s.add(v);
+		}
+		return s;
 	}
 
 }
