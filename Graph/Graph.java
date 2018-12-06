@@ -118,8 +118,8 @@ public class Graph{
 		return false;
 	}
 
-	public void printAllPaths(Vertex u, Vertex v){
-
+	public void printPath(Vertex u, Vertex v){
+		
 	}
 
 	//check whether two vertices are conntect
