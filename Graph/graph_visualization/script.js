@@ -1,6 +1,9 @@
 var clickHistory = [];
 var progress;
 
+var breadth_interval;
+var depth_interval;
+
 function setup() { //initialize everything
   fillFunctionButtons();
   fillStatusText();
@@ -61,9 +64,9 @@ function breadthFirstSearch(){
   var queue = new Queue();
   queue.enqueue(start_ij);
 
-  interval = setInterval(search,100);
+  breadth_interval = setInterval(breadth_search,100);
 
-  function search(){
+  function breadth_search(){
     if(!queue.isEmpty()){
       var currPair = queue.dequeue();
       var ijArr = currPair.split("_");
@@ -72,7 +75,7 @@ function breadthFirstSearch(){
 
       if(getButtonColor(curr_i, curr_j) == "red"){
         alert("found");
-        clearInterval(interval);
+        clearInterval(breadth_interval);
       }
 
 
@@ -103,16 +106,67 @@ function breadthFirstSearch(){
 
   }
 
+}
 
+
+function depthFirstSearch(ij){
+  var start_ij = "7_0";
+
+  depth_interval = setInterval(depth_search,100);
+
+  function depth_search(){
+    if(!queue.isEmpty()){
+      var currPair = queue.dequeue();
+      var ijArr = currPair.split("_");
+      var curr_i = ijArr[0];
+      var curr_j = ijArr[1];
+
+      if(getButtonColor(curr_i, curr_j) == "red"){
+        alert("found");
+        clearInterval(depth_interval);
+      }
+
+
+      if(getButtonColor(curr_i, curr_j) == "white"){
+        setButtonColor(curr_i, curr_j, "yellow");
+      }
+
+      var up_ij = (parseInt(curr_i) - 1) + "_" + curr_j;
+      var down_ij = (parseInt(curr_i) + 1) + "_" + curr_j;
+      var left_ij = curr_i + "_" + (parseInt(curr_j) - 1);
+      var right_ij = curr_i + "_" + (parseInt(curr_j) + 1);
+
+      var directions = [up_ij, right_ij, down_ij, left_ij];
+
+      for(var index = 0; index < 4; index++){
+        var curr_ij = directions[index];
+        var directionsButton = document.getElementById("img_" + curr_ij);
+        if(directionsButton == null) continue;
+        if(directionsButton.getAttribute("alt") == "white" || directionsButton.getAttribute("alt") == "red"){
+          queue.enqueue(curr_ij);
+        }
+      }
+    }else{
+      clearInterval(interval);
+    }
+    
+
+
+  }
 
 }
+
+
+
+
+
 
 function fillFunctionButtons() {
   var headDiv = document.getElementById("head");
   var funcBtnRow = createRow();
   // createButton(buttonText, styleClass, functionName);
   funcBtnRow.appendChild(createButton("Breadth First Search", "btn btn-primary btn-sm m-3", "breadthFirstSearch()"));
-  funcBtnRow.appendChild(createButton("Drop the beat", "btn btn-warning btn-sm m-3", "f2()"));
+  funcBtnRow.appendChild(createButton("Depth First Search", "btn btn-primary btn-sm m-3", "depthFirstSearch('7_0')"));
   funcBtnRow.appendChild(createButton("Defile", "btn btn-dark btn-sm m-3", "f3()"));
   funcBtnRow.appendChild(createButton("Puuurrrge!", "btn btn-light m-3", "f4()"));
   headDiv.appendChild(funcBtnRow);
